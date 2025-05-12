@@ -5,7 +5,7 @@ const Home = () => {
 
     return(
 
-        <h2> Bienvenido al sistema de Home </h2>
+        <h2> Texto editado desde visual studio code, en la rama feature/nuevaFuncionalidad</h2>
 
 
     )
