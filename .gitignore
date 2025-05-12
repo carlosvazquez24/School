@@ -1,0 +1,20 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+*.log
+
+# Vite (React)
+node_modules/
+dist/
+.env
+npm-debug.log
+yarn-error.log
+
+# Editor y sistema
+.vscode/
+.vs/
+*.tmp
+*.swp
+.DS_Store
