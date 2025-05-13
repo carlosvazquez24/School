@@ -2,22 +2,25 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
-# Copiar todos los archivos .csproj y carpetas necesarias para el restore
-COPY ./src/*.csproj ./src/
+# Copiar el archivo de solución y todos los proyectos relacionados
+COPY *.sln ./
+COPY AppServices/AppServices.csproj ./AppServices/
+COPY DataAccess/DataAccess.csproj ./DataAccess/
+COPY DTO's/DTO's.csproj ./DTO's/
+COPY Entities/Entities.csproj ./Entities/
+
+# Restaurar las dependencias
 RUN dotnet restore
 
-# Copiar el resto del código fuente
+# Copiar todo el código fuente
 COPY . ./
 
-# Publicar el proyecto
+# Publicar la aplicación
 RUN dotnet publish -c Release -o out
 
 # Etapa de runtime
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
+COPY --from=build /app/out .
 
-# Copiar el resultado de la etapa de build
-COPY --from=build /app/out ./
-
-# Establecer el punto de entrada para ejecutar la aplicación
 ENTRYPOINT ["dotnet", "School.dll"]
