@@ -113,7 +113,7 @@ using (var scope = app.Services.CreateScope())
 }
 
 
-app.Run();
+app.Run("http://0.0.0.0:80");
 
 async Task InsertUsersAndRoles(IServiceProvider serviceProvider)
 {
