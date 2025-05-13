@@ -6,7 +6,7 @@ WORKDIR /app
 COPY *.sln ./
 COPY AppServices/AppServices.csproj ./AppServices/
 COPY DataAccess/DataAccess.csproj ./DataAccess/
-COPY DTO's/DTO's.csproj ./DTO's/
+COPY Dtos/Dtos.csproj ./Dtos/
 COPY Entities/Entities.csproj ./Entities/
 
 # Restaurar las dependencias
